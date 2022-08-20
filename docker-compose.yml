@@ -110,6 +110,8 @@ services:
       POSTGRES_PASSWORD: 'ChooseYourOwnPasswordHere1234'
       POSTGRES_USER: guacamole_user
     image: postgres:13.4-buster
+    ports:
+      - "15432:5432"
     networks:
       guacnetwork_compose:
     restart: always
