@@ -1,4 +1,4 @@
-.gitignore
+.idea/
 data/
 nginx/ssl/
 init/initdb.sql
