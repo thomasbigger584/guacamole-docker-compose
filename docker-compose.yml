@@ -91,17 +91,19 @@ networks:
 
 # services
 services:
-  # guacd
+
   guacd:
     container_name: guacd_compose
     image: guacamole/guacd
     networks:
       guacnetwork_compose:
+    ports:
+      - "4822:4822"
     restart: always
     volumes:
     - ./drive:/drive:rw
     - ./record:/record:rw
-  # postgres
+
   postgres:
     container_name: postgres_guacamole_compose
     environment:
@@ -119,7 +121,6 @@ services:
     - ./init:/docker-entrypoint-initdb.d:z
     - ./data:/var/lib/postgresql/data:Z
 
-  # guacamole
   guacamole:
     container_name: guacamole_compose
     depends_on:
